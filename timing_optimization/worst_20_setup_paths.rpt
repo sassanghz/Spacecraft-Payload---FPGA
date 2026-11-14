@@ -1,0 +1,1371 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2021.2.1 (lin64) Build 3414424 Sun Dec 19 10:57:14 MST 2021
+| Date              : Wed Oct 28 18:36:17 2026
+| Host              : zahed-VirtualBox running 64-bit Ubuntu 20.04.6 LTS
+| Command           : report_timing -delay_type max -max_paths 20 -nworst 1 -sort_by slack -file /home/zahed/work/te0807_52_240/StarterKit/timing_optimization/worst_20_setup_paths.rpt
+| Design            : zusys_wrapper
+| Device            : xczu7ev-fbvb900
+| Speed File        : -1  PRODUCTION 1.29 08-03-2020
+| Temperature Grade : I
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_A_B_DATA_INST/A[7]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.233ns  (logic 0.097ns (7.867%)  route 1.136ns (92.133%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.014ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.880ns = ( 5.418 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.452ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.495ns (routing 0.185ns, distribution 1.310ns)
+  Clock Net Delay (Destination): 1.393ns (routing 0.170ns, distribution 1.223ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.495     3.452    <hidden>
+    SLICE_X85Y54         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X85Y54         FDRE (Prop_HFF2_SLICEL_C_Q)
+                                                      0.097     3.549 r  <hidden>
+                         net (fo=2, routed)           1.136     4.685    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/A[7]
+    DSP48E2_X5Y20        DSP_A_B_DATA                                 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_A_B_DATA_INST/A[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.393     5.418    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X5Y20        DSP_A_B_DATA                                 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_A_B_DATA_INST/CLK
+                         clock pessimism             -0.442     4.976    
+                         clock uncertainty           -0.053     4.924    
+    DSP48E2_X5Y20        DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[7])
+                                                     -0.294     4.630    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[0].u_ba2d1c29/g_82761c2d[1].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.630    
+                         arrival time                          -4.685    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[36]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[36])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[36]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<36>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[36]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[36])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[37]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[37])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[37]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<37>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[37]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[37])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[38]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[38])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[38]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<38>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[38]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[38])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[39]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[39])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[39]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<39>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[39]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[39])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[40]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[40])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[40]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<40>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[40]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[40])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[41]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[41])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[41]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<41>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[41]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[41])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[42]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[42])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[42]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<42>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[42]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[42])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[43]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[43])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[43]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<43>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[43]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[43])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[44]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[44])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[44]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<44>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[44]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[44])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[45]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[45])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[45]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<45>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[45]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[45])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[46]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[46])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[46]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<46>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[46]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[46])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.055ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[47]
+                            (rising edge-triggered cell DSP_OUTPUT clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.437ns  (logic 0.971ns (67.571%)  route 0.466ns (32.429%))
+  Logic Levels:           2  (DSP_ALU=1 DSP_C_DATA=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.842ns = ( 5.380 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.514ns
+    Clock Pessimism Removal (CPR):    -0.442ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.557ns (routing 0.185ns, distribution 1.372ns)
+  Clock Net Delay (Destination): 1.355ns (routing 0.170ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.557     3.514    <hidden>
+    SLICE_X65Y62         FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y62         FDRE (Prop_EFF_SLICEL_C_Q)
+                                                      0.096     3.610 r  <hidden>
+                         net (fo=1, routed)           0.466     4.076    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/C[36]
+    DSP48E2_X6Y24        DSP_C_DATA (Prop_DSP_C_DATA_DSP48E2_C[36]_C_DATA[36])
+                                                      0.131     4.207 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA_INST/C_DATA[36]
+                         net (fo=2, routed)           0.000     4.207    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_C_DATA.C_DATA<36>
+    DSP48E2_X6Y24        DSP_ALU (Prop_DSP_ALU_DSP48E2_C_DATA[36]_ALU_OUT[47])
+                                                      0.744     4.951 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, routed)           0.000     4.951    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_ALU.ALU_OUT<47>
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/ALU_OUT[47]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.355     5.380    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X6Y24        DSP_OUTPUT                                   r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST/CLK
+                         clock pessimism             -0.442     4.939    
+                         clock uncertainty           -0.053     4.886    
+    DSP48E2_X6Y24        DSP_OUTPUT (Setup_DSP_OUTPUT_DSP48E2_CLK_ALU_OUT[47])
+                                                      0.010     4.896    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[1].g_2fad7a3e[4].g_4da1bc06[1].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_OUTPUT_INST
+  -------------------------------------------------------------------
+                         required time                          4.896    
+                         arrival time                          -4.951    
+  -------------------------------------------------------------------
+                         slack                                 -0.055    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[20]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[20])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[20]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<20>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[20]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[20])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[21]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[21])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[21]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<21>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[21]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[21])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[22]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[22])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[22]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<22>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[22]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[22])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[23]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[23])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[23]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<23>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[23]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[23])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[24]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[24])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[24]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<24>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[24]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[24])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[25]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[25])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[25]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<25>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[25]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[25])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+Slack (VIOLATED) :        -0.054ns  (required time - arrival time)
+  Source:                 <hidden>
+                            (rising edge-triggered cell FDRE clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Destination:            zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[26]
+                            (rising edge-triggered cell DSP_PREADD_DATA clocked by clk_out1_zusys_dpu_clk_wiz_0  {rise@0.000ns fall@0.769ns period=1.538ns})
+  Path Group:             clk_out1_zusys_dpu_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            1.538ns  (clk_out1_zusys_dpu_clk_wiz_0 rise@1.538ns - clk_out1_zusys_dpu_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        1.482ns  (logic 1.060ns (71.525%)  route 0.422ns (28.475%))
+  Logic Levels:           2  (DSP_PREADD=1 DSP_PREADD_DATA=1)
+  Clock Path Skew:        -0.080ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.711ns = ( 5.249 - 1.538 ) 
+    Source Clock Delay      (SCD):    3.342ns
+    Clock Pessimism Removal (CPR):    -0.449ns
+  Clock Uncertainty:      0.053ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.078ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      1.385ns (routing 0.185ns, distribution 1.200ns)
+  Clock Net Delay (Destination): 1.224ns (routing 0.170ns, distribution 1.054ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     0.000 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.779     1.779    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     1.673 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     1.929    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.957 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.385     3.342    <hidden>
+    SLICE_X67Y152        FDRE                                         r  <hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X67Y152        FDRE (Prop_EFF_SLICEM_C_Q)
+                                                      0.093     3.435 f  <hidden>
+                         net (fo=1, routed)           0.422     3.857    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/D[20]
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_DSP48E2_DIN[20]_D_DATA[20])
+                                                      0.306     4.163 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/D_DATA[20]
+                         net (fo=1, routed)           0.000     4.163    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA.D_DATA<20>
+    DSP48E2_X7Y60        DSP_PREADD (Prop_DSP_PREADD_DSP48E2_D_DATA[20]_AD[26])
+                                                      0.661     4.824 r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_INST/AD[26]
+                         net (fo=1, routed)           0.000     4.824    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD.AD<26>
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/AD[26]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_zusys_dpu_clk_wiz_0 rise edge)
+                                                      1.538     1.538 r  
+    BUFG_PS_X0Y84        BUFG_PS                      0.000     1.538 r  zusys_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_2.PL_CLK_2_BUFG/O
+                         net (fo=1, routed)           1.591     3.129    zusys_i/dpu_clk_wiz/inst/clk_in1
+    MMCM_X1Y2            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     3.773 r  zusys_i/dpu_clk_wiz/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     4.001    zusys_i/dpu_clk_wiz/inst/clk_out1_zusys_dpu_clk_wiz_0
+    BUFGCE_X1Y70         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     4.025 r  zusys_i/dpu_clk_wiz/inst/clkout1_buf/O
+    X2Y2 (CLOCK_ROOT)    net (fo=44085, routed)       1.224     5.249    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/CLK
+    DSP48E2_X7Y60        DSP_PREADD_DATA                              r  zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST/CLK
+                         clock pessimism             -0.449     4.800    
+                         clock uncertainty           -0.053     4.748    
+    DSP48E2_X7Y60        DSP_PREADD_DATA (Setup_DSP_PREADD_DATA_DSP48E2_CLK_AD[26])
+                                                      0.022     4.770    zusys_i/DPUCZDX8G_0/inst/g_69639a2a.u_e7514e2b/u_1a76dde4/u_6274c5fa/u_c7f3290b/u_85184a7f/g_306cb058[0].g_2fad7a3e[0].g_4da1bc06[4].u_ba2d1c29/g_82761c2d[0].g_bfd7a743.u_318caada/u_dsp/g_537424c2.u_dsp48e2/DSP_PREADD_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          4.770    
+                         arrival time                          -4.824    
+  -------------------------------------------------------------------
+                         slack                                 -0.054    
+
+
+
+

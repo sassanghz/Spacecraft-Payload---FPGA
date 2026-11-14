@@ -1,0 +1,1 @@
+cmd_/var/lib/docker/scratch/scratch/yey/dpu/xilinx-zcu102-trd/project-spec/meta-user/recipes-modules/dpu/files/dpu.mod := { echo  /var/lib/docker/scratch/scratch/yey/dpu/xilinx-zcu102-trd/project-spec/meta-user/recipes-modules/dpu/files/dpu.o;  echo; } > /var/lib/docker/scratch/scratch/yey/dpu/xilinx-zcu102-trd/project-spec/meta-user/recipes-modules/dpu/files/dpu.mod

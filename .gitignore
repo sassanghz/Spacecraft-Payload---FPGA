@@ -1,0 +1,43 @@
+# ==========================================
+# Zetane FPGA — Vivado Source Repository
+# ==========================================
+
+# Ignore everything at repository root
+/*
+
+# Keep repository documentation
+!/.gitignore
+!/README.md
+
+# Vivado source directories
+!/vivado/
+!/constraints/
+!/block_design/
+!/ip_lib/
+!/scripts/
+!/board_files/
+!/settings/
+
+# Exclude Vivado-generated directories
+/vivado/*.runs/
+/vivado/*.cache/
+/vivado/*.gen/
+/vivado/*.sim/
+/vivado/*.hw/
+/vivado/*.ip_user_files/
+/vivado/.Xil/
+
+# Generated implementation artifacts
+*.dcp
+*.bit
+*.bin
+*.xsa
+
+# Temporary logs and journals
+*.log
+*.jou
+*.str
+
+# Editor temporary files
+*~
+*.swp

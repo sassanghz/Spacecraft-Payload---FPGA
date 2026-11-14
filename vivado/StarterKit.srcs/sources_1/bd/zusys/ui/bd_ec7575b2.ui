@@ -1,0 +1,67 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.679153",
+   "Default View_TopLeft":"-91,-222",
+   "ExpandedHierarchyInLayout":"",
+   "commentid":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port BASE -pg 1 -lvl 6 -x 2570 -y 290 -defaultsOSRD
+preplace port I2S -pg 1 -lvl 0 -x -30 -y 440 -defaultsOSRD
+preplace port RGPIO_M_EXT_0 -pg 1 -lvl 6 -x 2570 -y -20 -defaultsOSRD
+preplace port RGPIO_M_EXT_1 -pg 1 -lvl 6 -x 2570 -y 0 -defaultsOSRD
+preplace inst RGPIO -pg 1 -lvl 4 -x 2050 -y 600 -defaultsOSRD
+preplace inst SC0808BF_0 -pg 1 -lvl 3 -x 1530 -y 290 -defaultsOSRD
+preplace inst axis_live_audio_0 -pg 1 -lvl 1 -x 220 -y 440 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 3 -x 1530 -y 540 -defaultsOSRD
+preplace inst vio_general -pg 1 -lvl 2 -x 800 -y 90 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 2 -x 800 -y 400 -defaultsOSRD
+preplace inst DPUCZDX8G_0 -pg 1 -lvl 4 -x 2050 -y 110 -defaultsOSRD
+preplace inst dpu_clk_wiz -pg 1 -lvl 1 -x 220 -y 70 -defaultsOSRD
+preplace inst dpu_reset_650 -pg 1 -lvl 1 -x 220 -y 280 -defaultsOSRD
+preplace inst dpu_reset_325 -pg 1 -lvl 4 -x 2050 -y 390 -defaultsOSRD
+preplace inst dpu_control_smc -pg 1 -lvl 3 -x 1530 -y 30 -defaultsOSRD
+preplace inst dpu_reset_100 -pg 1 -lvl 4 -x 2050 -y 900 -defaultsOSRD
+preplace inst dpu_reset_inv -pg 1 -lvl 3 -x 1530 -y 730 -defaultsOSRD
+preplace inst dpu_instr_smc -pg 1 -lvl 5 -x 2410 -y 140 -defaultsOSRD
+preplace netloc DPUCZDX8G_0_dpu0_interrupt 1 1 4 460 670 NJ 670 NJ 670 2250
+preplace netloc SC0808BF_0_PS_AUX_DI 1 1 3 450 660 NJ 660 1800
+preplace netloc SC0808BF_0_PS_DP_HPD 1 1 3 470 650 NJ 650 1790
+preplace netloc dpu_clk_wiz_clk_out1 1 0 4 20 -20 400J -20 1240J 110 N
+preplace netloc dpu_clk_wiz_clk_out2 1 1 4 430J 10 1140J 120 1840 -40 2270
+preplace netloc dpu_clk_wiz_locked 1 0 4 40 170 400 170 1190J 160 1820
+preplace netloc dpu_reset_100_peripheral_aresetn 1 2 3 1250 790 1850 790 2230
+preplace netloc dpu_reset_325_peripheral_aresetn 1 3 2 1870 -30 2260
+preplace netloc dpu_reset_650_peripheral_aresetn 1 1 3 400 200 1180J 130 NJ
+preplace netloc dpu_reset_inv_Res 1 3 1 1800 730n
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 3 1 N 580
+preplace netloc vio_CAN_0_S 1 2 1 1200 110n
+preplace netloc vio_LED_HD 1 2 1 1220 70n
+preplace netloc vio_LED_XMOD2 1 2 1 1150 90n
+preplace netloc zynq_ultra_ps_e_0_dp_audio_ref_clk 1 0 3 30 180 410 -30 1130
+preplace netloc zynq_ultra_ps_e_0_dp_aux_data_oe_n 1 2 1 1140 300n
+preplace netloc zynq_ultra_ps_e_0_dp_aux_data_out 1 2 1 1210 280n
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 2 2 1240 640 1870
+preplace netloc zynq_ultra_ps_e_0_pl_clk1 1 1 3 440 0 1160 800 1860
+preplace netloc zynq_ultra_ps_e_0_pl_clk2 1 0 3 -10 600 NJ 600 1120
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 4 0 -40 N -40 1230 440 1870
+preplace netloc DPUCZDX8G_0_DPU0_M_AXI_DATA0 1 1 4 470 180 1140J 140 1800J -10 2230
+preplace netloc DPUCZDX8G_0_DPU0_M_AXI_DATA1 1 1 4 450 -50 NJ -50 NJ -50 2250
+preplace netloc DPUCZDX8G_0_DPU0_M_AXI_INSTR 1 4 1 N 120
+preplace netloc I2S_0_1 1 0 1 N 440
+preplace netloc RGPIO_RGPIO_M_EXT 1 2 3 1260 420 1830J 280 2240
+preplace netloc RGPIO_RGPIO_M_EXT1 1 2 3 1270 430 1810J 290 2230
+preplace netloc SC0808BF_0_BASE 1 3 3 N 270 N 270 2550
+preplace netloc axis_live_audio_0_m_axis 1 1 1 420 350n
+preplace netloc dpu_control_smc_M00_AXI 1 3 1 1820 30n
+preplace netloc dpu_instr_smc_M00_AXI 1 1 5 460 190 1210J 150 1790J -20 NJ -20 2550
+preplace netloc zynq_ultra_ps_e_0_CAN_0 1 2 1 1190 260n
+preplace netloc zynq_ultra_ps_e_0_M_AXIS_MIXED_AUDIO 1 0 3 10 -10 NJ -10 1120
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 2 1 1170 10n
+levelinfo -pg 1 -30 220 800 1530 2050 2410 2570
+pagesize -pg 1 -db -bbox -sgen -110 -60 2740 1000
+"
+}
+{
+   """""da_zynq_ultra_ps_e_cnt""""":"1"
+}

@@ -1,0 +1,14 @@
+Creation Date:      2026-09-19 13:39:02
+TE::ID:             60           
+TE::PRODID:         TE0807-03-7DI24-A       
+TE::PARTNAME:       xczu7ev-fbvb900-1-i     
+TE::BOARDPART:      trenz.biz:te0807_7ev_1i_tebf0808:part0:4.0    
+TE::SHORTDIR:       7ev_1i_4gb     
+TE::ZYNQFLASHTYP:   qspi-x8-dual_parallel 
+TE::FPGAFLASHTYP:   mt25qu02g-qspi-x8-dual_parallel 
+TE::PCB_REV:        REV03      
+TE::DDR_SIZE:       4GB     
+TE::FLASH_SIZE:     512MB   
+TE::EMMC_SIZE:      NA    
+TE::OTHERS:         NA       
+TE::NOTES:          NA        
